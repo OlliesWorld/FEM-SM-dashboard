@@ -16,16 +16,36 @@
     background: var(--dark-card);
     color: var(--dark-text);
     // width: rem(255);
-    
+    position: relative;
     text-align: center;
     padding: rem(25);
     border-radius: rem(5);
-    
+    overflow: hidden;
+    margin-top: rem(5);
+    transition: background 150ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--dark-card-hover);
+        
+    }
+
     &--facebook{
         border-top: rem(5) solid var(--facebook);
     }
     &--instagram{
-        border-top: rem(5) solid var(--toggle-bg-end);
+        padding: rem(30);
+       &::before {
+           content: '';
+           height: rem(5);
+           width: 100%;
+           background: linear-gradient(225deg, var(--instagram-end) 0%, var(--instagram-middle) 50.91%, var(--instagram-start) 100%);
+           position: absolute;
+           display: block;
+           top: 0;
+           left: 0;
+       }
+        // border-top: rem(5) solid var(--toggle-bg-end);
     }
     &--twitter{
         border-top: rem(5) solid var(--twitter);
@@ -33,13 +53,22 @@
     &--youtube{
         border-top: rem(5) solid var(--youtube);
     }
+
+    
     
     &__platform {
         display: flex;
         justify-content: center;
         align-items:center;
         margin-bottom: rem(28);
+        height: rem(20);
     }
+
+    &__subtitle {
+        font-weight: 700;
+        font-size: rem(14);
+    }
+
     &__icon {
         margin-right: rem(8);
         &--facebook{}
@@ -65,7 +94,10 @@
         &--big{
             font-size: rem(56);
         }
-        &--small{}
+        &--small{
+            font-size: rem(32);
+            font-weight: bold;
+        }
     }
     &__label{
         color: var(--dark-text);
